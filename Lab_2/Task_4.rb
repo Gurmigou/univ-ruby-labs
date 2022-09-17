@@ -7,6 +7,6 @@ def to_binary(val)
   bin == "" ? "0" : bin
 end
 
-decimal = 335
+decimal = 3489430
 binary = to_binary(decimal)
 puts "#{decimal} in binary is #{binary}"

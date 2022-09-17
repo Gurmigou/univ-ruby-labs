@@ -8,7 +8,7 @@ def to_decimal(val, base = 2)
   value
 end
 
-binary = "111100010011"
+binary = "11100011010101"
 converted = to_decimal(binary)
 
 puts "#{binary} in decimal is #{converted}"

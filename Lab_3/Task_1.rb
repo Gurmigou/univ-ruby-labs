@@ -1,9 +1,9 @@
-# not (A or B) and (A and  not B)
+require_relative '../UnitTests'
+
 def a_task(a, b)
   not (a or b) and (a and not b)
 end
 
-# ! changed <= to or
 def b_task(a, b, c, x, y, z)
   ((z != y) or (6 >= y)) and a or b and c and x >= 1.5
 end
@@ -28,23 +28,64 @@ def g_task(a, b, c)
   (a and (c and b != b or a) or c) and b
 end
 
-A = false
-B = false
-C = true
-X = 60
-Y = -10
-Z = 4
-
-puts "Result a_task: #{a_task(A, B)}"
-puts "Result b_task: #{b_task(A, B, C, X, Y, Z)}"
-puts "Result c_task: #{c_task(X, Y, Z)}"
-puts "Result d_task: #{d_task(X, Y, Z)}"
-puts "Result e_task: #{e_task(A, B, C)}"
-puts "Result f_task: #{f_task(X, Y)}"
-puts "Result g_task: #{g_task(A, B, C)}"
-
 def subtask_2(x, y, p)
   ((y * y - x) > x * x) or (Math.cos(x) > 0) and not p
 end
 
-puts "Result subtask_2: #{subtask_2(-0.5, -1, true)}"
+A = false
+B = false
+C = true
+
+X = 60
+Y = -10
+Z = 4
+
+# Testing
+def test_a_task
+  puts 'A task'
+  assert_equal(false, a_task(A, B))
+end
+
+def test_b_task
+  puts 'B task'
+  assert_equal(false, b_task(A, B, C, X, Y, Z))
+end
+
+def test_c_task
+  puts 'C task'
+  assert_equal(true, c_task(X, Y, Z))
+end
+
+def test_d_task
+  puts 'D task'
+  assert_equal(true, d_task(X, Y, Z))
+end
+
+def test_e_task
+  puts 'E task'
+  assert_equal(true , e_task(A, B, C))
+end
+
+def test_f_task
+  puts 'F task'
+  assert_equal(false , f_task(X, Y))
+end
+
+def test_g_task
+  puts 'G task'
+  assert_equal(false, g_task(A, B, C))
+end
+
+def test_subtask_2
+  puts 'Subtask 2'
+  assert_equal(false, subtask_2(-0.5, -1, true))
+end
+
+test_a_task
+test_b_task
+test_c_task
+test_d_task
+test_e_task
+test_f_task
+test_g_task
+test_subtask_2

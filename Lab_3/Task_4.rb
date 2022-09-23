@@ -1,3 +1,5 @@
+require_relative '../UnitTests'
+
 EPSILON = 0.00001
 def factorial(n)
   (1..n).reduce(:*) || 1
@@ -16,7 +18,6 @@ def sum1
     n += 1
   end
 end
-puts "#{sum1}"
 
 SUM_2_RESULT = -(Math::PI ** 2) / 12
 def sum2
@@ -31,7 +32,6 @@ def sum2
     n += 1.0
   end
 end
-puts "#{sum2}"
 
 SUM_3_RESULT = 0.028942
 def sum3
@@ -46,4 +46,23 @@ def sum3
     n += 1.0
   end
 end
-puts "#{sum3}"
+
+
+def test_sum1
+  puts 'Task 1'
+  assert_equal(2.1433470507544573e-05, sum1)
+end
+
+def test_sum2
+  puts 'Task 2'
+  assert_equal(-0.8224571129860231, sum2)
+end
+
+def test_sum3
+  puts 'Task 3'
+  assert_equal(0.028938265666660728, sum3)
+end
+
+test_sum1
+test_sum2
+test_sum3

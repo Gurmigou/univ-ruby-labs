@@ -1,9 +1,6 @@
-PI = 3.141
+require_relative '../UnitTests'
 
-puts "Enter N:"
-n = gets.to_i
-puts "Enter C:"
-c = gets.to_i
+PI = 3.141
 
 def y(x, n)
   ((2 * x ** (-1.0 / 3)) / (x ** (2.0 / 3) - 3 * x ** (-1.0 / 3))) - (x ** (2.0 / n) / (x ** (5.0 / 3) - x ** (2.0 / n))) - ((x + 1) / ((x ** 2 - 4 * x + 3) == 0 ? 1 : (x ** 2 - 4 * x + 3)))
@@ -49,6 +46,6 @@ def task_3(n, c)
   end
 end
 
-task_1(n, c)
-task_2(n, c)
+task_1(4, 8)
+task_2(4, 8)
 task_3(4, 8)

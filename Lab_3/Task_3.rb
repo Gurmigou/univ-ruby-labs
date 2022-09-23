@@ -1,3 +1,5 @@
+require_relative '../UnitTests'
+
 def task2
   sum = 0
   (0..8).each {
@@ -7,10 +9,7 @@ def task2
   sum
 end
 
-def task3(x)
-  print "Enter n:"
-  n = gets.to_i
-
+def task3(x, n)
   sum = 0
   fact = 1
   (0..n).each {
@@ -21,8 +20,19 @@ def task3(x)
   sum
 end
 
-puts "Result task2: #{task2}"
+def test_task2
+  puts 'Task 2'
+  assert_equal(1.499923792104862, task2)
+end
 
-print "Task 3: Enter x:"
-x = gets.to_i
-puts "Result task3: #{task3(x)}"
+def test_task3
+  puts 'Task 3'
+  assert_equal(1.0, task3(0, 0))
+  assert_equal(72003879898, task3(25, 48))
+  assert_equal(-8, task3(-4, 18))
+  assert_equal(1, task3(19, 0))
+  assert_equal(2, task3(1, 2))
+end
+
+test_task2
+test_task3

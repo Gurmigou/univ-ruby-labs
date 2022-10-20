@@ -28,7 +28,7 @@ array = [
   LibraryRecord.new('Book_1', 'Kovalenko', '2018-08-07', 'x'),
 ]
 
-# the least time the book was found
+# the least time required to find the book
 def task_1(array)
   filtered = array.select { |record| record.date_of_issue != 'x' }
   filtered.min_by { |record| (Date.parse(record.date_of_issue) - Date.parse(record.date_of_order)).to_i }
